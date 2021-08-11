@@ -18,6 +18,7 @@ from django.urls import path, include
 from .views import *
 
 urlpatterns = [
+
     path('admin/', admin.site.urls),
     path('test_static', test_static),
     path("music/", include("music.urls")),

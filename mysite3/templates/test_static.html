@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>测试静态文件</title>
+</head>
+<body>
+
+<img src="http://127.0.0.1:8000/static/img/logo.jpeg" alt="" width="360px" height="200px">
+<br>
+<img src="/static/img/logo.jpeg" alt="" width="360px" height="200px">
+<br>
+<img src="{% static "img/logo.jpeg" %}" alt="" width="360px" height="200px">
+
+</body>
+</html>
+

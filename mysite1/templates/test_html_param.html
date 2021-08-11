@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test_html_param</title>
+</head>
+
+<body>
+<h3>int 是 {{ int|add:"123" }}</h3>
+<h3>str 是 {{ str|upper }}</h3>
+<h3>list 是 {{ list }}</h3>
+<h3>list 是 {{ list.0 }}</h3>
+<h3>list 是 {{ list.1 }}</h3>
+<h3>dict 是 {{ dict }}</h3>
+<h3>dict['b'] 是 {{ dict.b }}</h3>
+<h3>function 是 {{ func }}</h3>
+<h3>class_obj 是 {{ class_obj.say }}</h3>
+<h3>class_obj 是 {{ class_obj.eat }}</h3>
+<h3>script 是 {{ script|safe }}</h3>
+</body>
+
+</html>

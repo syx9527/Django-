@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>测试url</title>
+</head>
+<body>
+
+<a href="http://127.0.0.1:8000/test_url_result">绝对地址</a>
+<a href="/test_url_result">带"/"相对地址</a>
+<a href="test_url_result">不带"/"相对地址</a>
+<br>
+<a href="{% url 'tr'  100 %}">别名(url反向解析)</a>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    {% block mytitle %}
+        <title>主页</title>
+    {% endblock %}
+</head>
+<body>
+<a href="/base_index">主页</a>
+<a href="/music_index">音乐频道</a>
+<a href="/sport_index">体育频道</a>
+
+
+<br>
+<h3>
+    {% block info %}
+        这是主页
+        <span>欢迎 {{ username }}</span>
+    {% endblock %}
+</h3>
+<br>
+
+<h3>有任何问题请不要联系10086</h3>
+
+</body>
+</html>

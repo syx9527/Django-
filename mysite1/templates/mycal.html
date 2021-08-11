@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算器</title>
+</head>
+
+<body>
+    <form action="/mycal" method="post">
+        <input type="text" name="x" value="{{ x }}">
+        <select name="op">
+            <option value="add" {% if op == 'add' %}selected{% endif %}> +加</option>
+            <option value="sub" {% if op == 'sub' %}selected{% endif %}> -减</option>
+            <option value="mul" {% if op == 'mul' %}selected{% endif %}> *乘</option>
+            <option value="div" {% if op == 'div' %}selected{% endif %}> /除以</option>
+        </select>
+        <input type="text" name="y" value="{{ y }}">=<span>{{ result }}</span>
+        <div>
+            <input type="submit" value="开始计算">
+        </div>
+    </form>
+</body>
+
+</html>

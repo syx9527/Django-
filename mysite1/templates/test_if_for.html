@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试 if 和 for</title>
+</head>
+
+<body>
+
+{% if x > 10 %}
+    今天天气很好
+{% else %}
+    今天天气非常好
+{% endif %}
+
+<br>
+
+{% for name in list %}
+    {% if forloop.first %}
+        ====
+    {% endif %}
+    <p>{{ forloop.counter }} {{ name }}</p>
+    {% if forloop.last %}
+        ====
+    {% endif %}
+{% empty %}
+    None
+{% endfor %}
+
+
+</body>
+
+</html>

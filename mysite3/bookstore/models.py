@@ -16,6 +16,9 @@ class Book(models.Model):
     class Meta:
         db_table = "book"
 
+    def __str__(self):
+        return self.book_name
+
 
 class Author(models.Model):
     author_id = models.IntegerField("作者ID", primary_key=True)
@@ -25,3 +28,6 @@ class Author(models.Model):
 
     class Meta:
         db_table = 'author'
+
+    def __str__(self):
+        return self.author_name

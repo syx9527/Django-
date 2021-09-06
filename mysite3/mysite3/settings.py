@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'sport.apps.SportConfig',
     'news.apps.NewsConfig',
     'bookstore.apps.BookstoreConfig',
+    'oto.apps.OtoConfig',
 
 ]
 

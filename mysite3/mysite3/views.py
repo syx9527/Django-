@@ -7,4 +7,5 @@ def test_static(request):
 
 
 def test_index(request):
-    return redirect('book/all_book/')
+    # return redirect('book/all_book/')
+    return redirect('admin/')

@@ -22,8 +22,8 @@
             <td>{{ book.book_price }}</td>
             <td>{{ book.book_market_price }}</td>
             <td>
-                <a href="#">更新</a>
-                <a href="#">删除</a>
+                <a href="../update_book/{{ book.book_id }}">更新</a>
+                <a href="../delete_book?book_id={{ book.book_id }}">删除</a>
             </td>
         </tr>
     {% endfor %}

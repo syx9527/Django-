@@ -12,6 +12,7 @@ class Book(models.Model):
     book_info = models.CharField('描述', max_length=100, default='', null=True)
     author_id = models.IntegerField("作者ID", null=True)
     pub = models.CharField("出版社", max_length=50, default='')
+    is_active = models.BooleanField('是否活跃', default=True)
 
     class Meta:
         db_table = "book"
@@ -25,6 +26,7 @@ class Author(models.Model):
     author_name = models.CharField("姓名", max_length=11)
     author_age = models.IntegerField("年龄", default=1)
     author_email = models.EmailField("邮箱", null=True)
+    is_active = models.BooleanField('是否活跃', default=True)
 
     class Meta:
         db_table = 'author'

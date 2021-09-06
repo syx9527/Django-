@@ -159,7 +159,8 @@ for author in a5:
 print('- ' * 8)
 
 # 10. __range:查找数据是否在指定的区间范围内
-a6 = Author.objects.filter(author_age__range=(20, 35))
+a6 = Author.objects.filter(author_age__range=(20, 35)).order_by('-author_age')
+print(a6.query)
 for author in a6:
     print(author.author_id, author.author_name, author.author_age)
 """

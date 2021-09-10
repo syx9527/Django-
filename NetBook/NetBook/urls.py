@@ -1,4 +1,4 @@
-"""mysite3 URL Configuration
+"""NetBook URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.2/topics/http/urls/
@@ -14,20 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from .views import *
+from django.urls import path
 
 urlpatterns = [
-    path('', test_index),
     path('admin/', admin.site.urls),
-    path('test_static', test_static),
-    path("music/", include("music.urls")),
-    path("news/", include("news.urls")),
-    path("sport/", include("sport.urls")),
-    path("book/", include("bookstore.urls")),
-    path("set_cookies/", set_cookies),
-    path("get_cookies/", get_cookies),
-    path("get_session/", get_session),
-    path("set_session/", set_session),
-
 ]

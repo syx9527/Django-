@@ -25,5 +25,7 @@ urlpatterns = [
     path("news/", include("news.urls")),
     path("sport/", include("sport.urls")),
     path("book/", include("bookstore.urls")),
+    path("set_cookies/", set_cookies),
+    path("get_cookies/", get_cookies),
 
 ]

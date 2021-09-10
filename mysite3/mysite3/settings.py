@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'bookstore.apps.BookstoreConfig',
     'oto.apps.OtoConfig',
-    'otm.apps.OtmConfig'
+    'otm.apps.OtmConfig',
+    'mtm.apps.MtmConfig'
 
 ]
 

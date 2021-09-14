@@ -5,7 +5,6 @@
     <title>主页</title>
 </head>
 <body>
-{{ request.session.username }}
 
 {% if request.session.username %}
     <p>
@@ -17,7 +16,7 @@
         <a href="">进入我的笔记</a>
     </p>
     </p>
-{% elif  request.COOKIES %}
+{% elif  request.COOKIES.username %}
 
     <p>
         欢迎 {{ request.COOKIES.username }}

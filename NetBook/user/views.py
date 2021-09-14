@@ -71,6 +71,7 @@ def user_logup(request):
 
 
 def user_login(request):
+
     if request.method == "GET":
         c_username = request.COOKIES.get("username")
         c_uid = request.COOKIES.get('uid')
@@ -84,6 +85,7 @@ def user_login(request):
             return render(request, 'user/login.html')
 
     if request.method == "POST":
+
         # 处理数据
         remember = request.POST.get('remember')
 
@@ -116,10 +118,17 @@ def user_login(request):
 
 
 def logout(request):
-    request.session.clear()
-    request.session.flush()
-    # time.sleep(0.5)
-    request.COOKIES.clear()
-    print(request.COOKIES)
-    print(request.session.keys())
-    return HttpResponseRedirect('/')
+    # 删除session
+    if 'username' in request.session:
+        del request.session['username']
+    if 'uid' in request.session:
+        del request.session['uid']
+
+    response = HttpResponseRedirect("/")
+
+    if 'username' in request.COOKIES:
+        response.delete_cookie('username')
+    if 'uid' in request.COOKIES:
+        response.delete_cookie('uid')
+
+    return response

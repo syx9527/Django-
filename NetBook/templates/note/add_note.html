@@ -6,6 +6,7 @@
 </head>
 <body>
 <form action="/note/add/" method="post">
+    {% csrf_token %}
     <p>
         标题：<input type="text" name="title">
     </p>

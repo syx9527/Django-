@@ -1,12 +1,13 @@
 import hashlib
-import time
-
 from django.shortcuts import *
 from .models import User
+# 开放局部不需要csrf保护，可以用装饰器关闭此试图的检查
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
-
+# 局部不检查post
+@csrf_exempt
 def user_logup(request):
     """
     注册
@@ -71,7 +72,6 @@ def user_logup(request):
 
 
 def user_login(request):
-
     if request.method == "GET":
         c_username = request.COOKIES.get("username")
         c_uid = request.COOKIES.get('uid')

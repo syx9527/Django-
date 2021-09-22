@@ -5,7 +5,8 @@
     <title>欢迎登录云笔记平台</title>
 </head>
 <body>
-<form action="/user/login/" method="post">
+<form action="/user/login/" method="post"  >
+    {% csrf_token %}
     <p>
         用户名：<input type="text" name="username">
     </p>

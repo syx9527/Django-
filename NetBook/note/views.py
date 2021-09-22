@@ -1,28 +1,16 @@
+from django.core.paginator import Paginator
 from django.shortcuts import *
 from .models import *
 
 
 # Create your views here.
 
-def check_login(fn):
-    def wrap(request, *args, **kwargs):
-        if 'username' not in request.session or 'uid' not in request.session:
-            c_username = request.COOKIES.get("username")
-            c_uid = request.COOKIES.get("uid")
-            if not c_uid or not c_uid:
-                return HttpResponseRedirect('/user/login')
-            else:
-                request.session['username'] = c_username
-                request.session['uid'] = c_uid
 
-        return fn(request, *args, **kwargs)
+# @check_login
 
-    return wrap
-
-
-@check_login
 def add_view(request):
     if request.method == "GET":
+        print('888')
         return render(request, 'note/add_note.html')
 
     if request.method == "POST":
@@ -37,3 +25,22 @@ def add_view(request):
             return HttpResponse("添加笔记成功")
         else:
             return HttpResponseRedirect(request.path)
+
+
+def test_mw(request):
+    print('---test_mw view in ---')
+    return HttpResponse('middleware test')
+
+
+def test_page(request):
+    # /note/test_page/4
+    # /note/test_page/?page=1
+    page_num = request.GET.get('page', 1)
+    all_data = ['a', 'b', 'c', 'd', 'e']
+    # 初始化paginator对象
+    paginator = Paginator(all_data, 2)
+
+    # 初始化 具体页码的page对象
+    c_page = paginator.page(int(page_num))
+
+    return render(request, 'note/test_page.html', {'c_page': c_page})

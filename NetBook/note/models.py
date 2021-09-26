@@ -14,6 +14,3 @@ class Note(models.Model):
         db_table = 'note'
 
 
-class Content(models.Model):
-    desc = models.CharField('标题', max_length=100, default='')
-    myfile = models.FileField('文件',upload_to='user')

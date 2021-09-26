@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'user.apps.UserConfig',
     'index.apps.IndexConfig',
     'note.apps.NoteConfig',
+    'upload_app.apps.UploadAppConfig'
 ]
 
 MIDDLEWARE = [
@@ -48,9 +49,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'middleware.middleware.Middleware',
-    'middleware.middleware.Middleware_2',
-    'middleware.middleware.VisitLimit',
+    # 'middleware.middleware.Middleware',
+    # 'middleware.middleware.Middleware_2',
+    # 'middleware.middleware.VisitLimit',
 
 ]
 
@@ -145,3 +146,21 @@ CACHES = {
         }
     }
 }
+
+LOGIN_URL = '/login'
+
+# 文件路由配置file
+MEDIA__URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = BASE_DIR / 'media'
+# print(MEDIA_ROOT)
+
+
+"""
+MEDIA_URL和MEDIA_ROOT需要手动绑定
+步骤:主路由中添加路由
+from django.conf import settings
+from django.conf.urls.static import static
+urlpatterns += static(settings.MEDIA__URL,document_root=settings.MEDIA_ROOT)
+说明:等价于做了MEDIA_URL开头的路由，Django接到该特征请求后去MEDIA_ROOT路径查找资源
+"""

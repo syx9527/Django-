@@ -17,3 +17,16 @@ class AppClass(object):
 
 
 application = AppClass()
+
+
+class APpClassIter(object):
+    status = "200 OK"
+    response_headers = [('Content-type', 'text/html')]
+
+    def __init__(self, environ, start_response):
+        self.environ = environ
+        self.start_response = start_response
+
+    def __iter__(self):
+        self.start_response(self.status, self.response_headers)
+        yield b'Hello APpClassIter\n'

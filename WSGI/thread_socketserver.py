@@ -29,7 +29,7 @@ def handle_connection(conn, address):
     print(request)
     current_thread = threading.currentThread()
     content_length = len(body.format(thread_name=current_thread.name).encode())
-    conn.send(response.format(thread_name=current_thread.name), length=content_length.encode())
+    conn.send(response.format(thread_name=current_thread.name, length=content_length.encode()))
 
     # conn.send(response.encode())  # response 转为bytes后传输
     conn.close()

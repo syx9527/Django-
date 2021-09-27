@@ -29,4 +29,5 @@ class APpClassIter(object):
 
     def __iter__(self):
         self.start_response(self.status, self.response_headers)
+        print("-----")
         yield b'Hello APpClassIter\n'

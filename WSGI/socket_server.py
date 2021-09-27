@@ -35,10 +35,10 @@ def main():
 
     # 设置端口可复用，保证我们每次按Ctrl+C组合键后，快速重启
     serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    serversocket.bind(('47.103.205.80', 8000))
+    serversocket.bind(('0.0.0.0', 8000))
     serversocket.listen(5)  # 设置backlog--socket链接最大排队数量
 
-    print("http://47.103.205.80:8000")
+    print("http://127.0.0.1:8000")
     try:
         while True:
             conn, address = serversocket.accept()

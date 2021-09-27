@@ -19,8 +19,8 @@ response = '\r\n'.join(response_params)
 
 
 def handle_connection(conn, address):
-    print('oh,new conn', conn, address)
-    time.sleep(60)
+    # print('oh,new conn', conn, address)
+    # time.sleep(60)
 
     request = b""
     while EOL1 not in request and EOL2 not in request:
@@ -44,7 +44,7 @@ def main():
     serversocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     serversocket.bind(('0.0.0.0', 8000))
     serversocket.listen(10)  # 设置backlog--socket链接最大排队数量
-    print("http://47.103.205.80:8000")
+    print("http://127.0.0.1:8000")
     serversocket.setblocking(0)  # 设置为非阻塞模式
 
     try:

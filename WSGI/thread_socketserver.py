@@ -19,8 +19,8 @@ response = '\r\n'.join(response_params)
 
 
 def handle_connection(conn, address):
-    # print('oh,new conn', conn, address)
-    # time.sleep(100)
+    print('oh,new conn', conn, address)
+    time.sleep(60)
 
     request = b""
     while EOL1 not in request and EOL2 not in request:

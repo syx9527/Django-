@@ -33,6 +33,5 @@ class Student(models.Model):
 
     def __str__(self):
         return "<Student: {}>".format(self.name)
-
     class Meta:
         verbose_name = verbose_name_plural = "学员信息"

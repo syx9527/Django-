@@ -81,33 +81,4 @@ def make_page_csv(request):
 
 
 # @csrf_exempt
-def upload(request):
-    if request.method == "GET":
-        return render(request, 'note/uploadFile.html')
 
-    elif request.method == "POST":
-        """
-        用request.FILES取文件框的内容
-        file = request.FILES['XXX']
-            说明: 
-            1，FILES的key 对应页面中file框的name值
-            2， file 绑定文件流对象,
-            3, file.name文件名
-            4, file.file文件的字节流数据
-        """
-        # 1.传统方案，传统open
-        # userFile = request.FILES['userFile']
-        # print('上传的文件是:' + userFile.name)
-        # filename = settings.MEDIA_ROOT / userFile.name
-        #
-        # with open(filename, 'wb') as f:
-        #     data = userFile.file.read()
-        #     f.write(data)
-
-        # 2.借助ORM；
-        # 字段FileField(upload='子目录名')
-
-        title = request.POST.get('title')
-        userFile = request.FILES['userFile']
-        Content.objects.create(desc=title, myfile=userFile)
-        return HttpResponse("上传成功" + userFile.name + '成功')

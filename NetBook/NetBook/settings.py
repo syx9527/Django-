@@ -52,6 +52,7 @@ MIDDLEWARE = [
     # 'middleware.middleware.Middleware',
     # 'middleware.middleware.Middleware_2',
     # 'middleware.middleware.VisitLimit',
+    'middleware.middleware.ExceptionMW'
 
 ]
 
@@ -151,8 +152,8 @@ LOGIN_URL = '/login'
 
 # 文件路由配置file
 MEDIA__URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = BASE_DIR / 'media'
 # print(MEDIA_ROOT)
 
 
@@ -164,3 +165,19 @@ from django.conf.urls.static import static
 urlpatterns += static(settings.MEDIA__URL,document_root=settings.MEDIA_ROOT)
 说明:等价于做了MEDIA_URL开头的路由，Django接到该特征请求后去MEDIA_ROOT路径查找资源
 """
+
+# 配置收发邮箱
+# rxjgnxgsmhishcie
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.qq.com'  # 腾讯QQ邮箱SMTP服务器地址
+
+EMAIL_PORT = 25  # SMTP服务的端口号
+EMAIL_HOST_USER = "1276034292@qq.com"  # 发送邮件的QCQ邮箱
+# 授权码，不是邮箱密码
+EMAIL_HOST_PASSWORD = 'wpxkodomrnnjfeeh'  # 在OQ邮箱->设置->帐户-授权码服务”里得到的在第三方登录QQ邮箱
+# “POP3/IMAP.....
+EMAIL_USE_TLS = False  # 与SMTP服务器通信时，是否启动TLS链接(安全链接)默认False
+
+# EMAIL_HOST_PASSWORD = 'rxjgnxgsmhishcie'
+EX_EMAIL = ['1275241305@qq.com', '2077047790@qq.com','1476776320@qq.com']

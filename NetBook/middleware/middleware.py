@@ -1,6 +1,9 @@
 from django.shortcuts import HttpResponseRedirect, HttpResponse
 from django.utils.deprecation import MiddlewareMixin
 import re
+import traceback
+from django.core import mail
+from django.conf import settings
 
 
 def check_login(fn):
@@ -87,3 +90,13 @@ class VisitLimit(MiddlewareMixin):
     def process_response(self, request, response):
         print('middleware*2 process_response do ---')
         return response
+
+
+class ExceptionMW(MiddlewareMixin):
+
+    def process_exception(self, request, exceptions):
+        print(exceptions)
+        print(traceback.format_exc())
+        mail.send_mail(subject='mysite7报错啦！', message=traceback.format_exc(), from_email='1276034292@qq.com',
+                       recipient_list=settings.EX_EMAIL)
+        return HttpResponse("对不起，当前网页有点忙")

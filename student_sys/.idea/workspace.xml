@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a0412b2-231f-48ba-85e0-21f7e3ea1177" name="Default Changelist" comment="update student_sys">
+    <list default="true" id="0f000012-e414-44bf-b551-0426a4f23a3a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../NetBook/.idea/runConfigurations/NetBook.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NetBook/.idea/runConfigurations/migrate.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NetBook/.idea/runConfigurations/migrations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../NetBook/.idea/runConfigurations/upload.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../djangoProject/.idea/djangoProject.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../mysite7/.idea/mysite7.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/student/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/student/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/student_sys.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/student_sys.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student_sys/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_sys/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_sys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_sys/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1yiFmh3k91tPa4MCkIpi8wBh9Jf" />
+  <component name="ProjectId" id="1yiLy5AL6u4NO7QIarn62rpvFtA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -24,7 +44,6 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager" selected="Django Server.student_sys">
@@ -34,6 +53,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="student_sys.settings" />
       </envs>
       <option name="SDK_HOME" value="D:\Anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -56,6 +76,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="student_sys.settings" />
       </envs>
       <option name="SDK_HOME" value="D:\Anaconda3\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -72,61 +93,24 @@
       <option name="customRunCommand" value="migrate" />
       <method v="2" />
     </configuration>
-    <configuration name="student_sys" type="Python.DjangoServer" factoryName="Django server">
-      <module name="student_sys" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="student_sys.settings" />
-      </envs>
-      <option name="SDK_HOME" value="D:\Anaconda3\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="http://127.0.0.1:8000/" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
     <list>
+      <item itemvalue="Django Server.makemigrations" />
       <item itemvalue="Django Server.student_sys" />
       <item itemvalue="Django Server.migrate" />
-      <item itemvalue="Django Server.makemigrations" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="2a0412b2-231f-48ba-85e0-21f7e3ea1177" name="Default Changelist" comment="" />
-      <created>1632726661818</created>
+      <changelist id="0f000012-e414-44bf-b551-0426a4f23a3a" name="Default Changelist" comment="" />
+      <created>1632729712652</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1632726661818</updated>
-      <workItem from="1632726662964" duration="1130000" />
+      <updated>1632729712652</updated>
+      <workItem from="1632729715180" duration="2668000" />
+      <workItem from="1632798392423" duration="1464000" />
+      <workItem from="1632888757631" duration="64000" />
     </task>
-    <task id="LOCAL-00001" summary="upload student_sys">
-      <created>1632726707836</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1632726707836</updated>
-    </task>
-    <task id="LOCAL-00002" summary="update student_sys">
-      <created>1632727024490</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1632727024490</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,10 +126,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="upload student_sys" />
-    <MESSAGE value="update student_sys" />
-    <option name="LAST_COMMIT_MESSAGE" value="update student_sys" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

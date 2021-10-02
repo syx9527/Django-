@@ -21,11 +21,11 @@ class Student(models.Model):
     ]
 
     name = models.CharField(max_length=128, verbose_name="姓名")
-    sex = models.IntegerField(choices=SEX_ITEMS, verbose_name="性别")
+    sex = models.IntegerField(choices=SEX_ITEMS, verbose_name="性别", default=0)
     profession = models.CharField(max_length=128, verbose_name="职业")
     email = models.EmailField(verbose_name="邮箱")
-    qq = models.IntegerField(max_length=10, verbose_name="QQ")
-    phone = models.IntegerField(max_length=20, verbose_name="电话")
+    qq = models.CharField(max_length=10, verbose_name="QQ")
+    phone = models.CharField(max_length=20, verbose_name="电话")
 
     status = models.IntegerField(choices=STATUS_ITEMS, default=0, verbose_name="审核状态")
 
@@ -36,3 +36,7 @@ class Student(models.Model):
 
     class Meta:
         verbose_name = verbose_name_plural = "学员信息"
+
+    @classmethod
+    def get_all(cls):
+        return cls.objects.all()

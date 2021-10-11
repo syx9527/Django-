@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+</head>
+<body>
+<!-- 显示评论 -->
+<h4>共有{{ comments.count }}条评论</h4>
+<div>
+    {% for comment in comments %}
+        ...
+        <!-- 修改这里 -->
+        <div>{{ comment.body|safe }}</div>
+    {% endfor %}
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="{% static 'blog/bs/css/bootstrap.css' %}">
+    <style>
+        #avatar_img {
+            margin-left: 80px;
+        }
+
+        #avatar {
+            display: none;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h3>Welcome to Blog of Caesar Tylor</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-offset-3"> {# 占用六个，右倾 #}
+            <form id="alex">  {# action不再定义，基于Ajax提交 #}
+                {% csrf_token %} {# 增加CSRF防护令牌 #}
+                {% for field in form %}
+                    <div class="form-group">
+                        {#依次渲染user pwd re_pwd#}
+                        <label for="{{ field.auto_id }}">{{ field.label }}</label>
+                        {{ field }} <span class="error pull-right"></span>
+                    </div>
+                {% endfor %}
+                <div class="form-group">
+                    {#依次渲染user pwd re_pwd#}
+                    <label for="avatar">
+                        头像
+                        <img id="avatar_img" width="200" height="200"
+                             src="{% static '/static/blog/img/default_avatar.png' %}" alt="">
+                    </label>
+                    <input type="file" id="avatar">
+                </div>
+                <input type="button" class="btn btn-default reg_btn" value="submit">
+            </form>
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
+<script>
+    $("#avatar").change(function () {
+        // 获取用户选中的文件对象
+        var file_obj = $(this)[0].files[0];
+        // 获取文件对象的路径---使用文件阅读器，异步线程，修改src也在执行
+        var reader = new FileReader();
+        reader.readAsDataURL(file_obj);
+        // 修改img的src属性，src=文件对象路径，等待以上操作执行完毕再修改属性
+        reader.onload = function () {
+            $("#avatar_img").attr("src", reader.result);
+        }
+    })
+    // 基于Ajax提交数据
+    $(".reg_btn").click(function () {
+        //console.log($("#form").serializeArray());
+        var formdata = new FormData();
+        // #alex---指的是提取的字段ID
+        var request_data = $("#alex").serializeArray();
+        $.each(request_data, function (index, data) {
+            formdata.append(data.name, data.value)
+        });
+
+        formdata.append("avatar", $("#avatar")[0].files[0]);
+
+        $.ajax({
+            url: "",  //使用当前的URL
+            type: "post",  //网络请求的方式
+            contentType: false,
+            processData: false,
+            data: formdata,
+            success: function (data) {
+                {#console.log(data);#}
+                if (data.user) {
+                    // 注册成功
+                    location.href = "/login/"
+                } else {
+                    // 注册失败；取出所有错误
+                    {#console.log(data)#}
+                    // 在针对字段添加错误提示之前先清空提交时传递的错误信息
+                    $("span.error").html("");
+                    $(".form-group").removeClass("has-error");
+                    $.each(data.msg, function (field, error_list) {
+                        console.log(field, error_list);
+                        // 用于提示两次输入的密码不一致
+                        if (field == "__all__") {
+                            $("#id_re_pwd").next().html(error_list[0]).parent().addClass("has-error");
+                        }
+                        // 使用字段拼接来实现字段的遍历指定
+                        $("#id_" + field).next().html(error_list[0]);
+                        $("#id_" + field).parent().addClass("has-error");
+                    })
+
+                }
+            }
+
+        })
+    })
+
+</script>
+<script>
+</script>
+</body>
+</html>

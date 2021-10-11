@@ -27,6 +27,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../blog" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RunManager" selected="Django Server.student_sys">
@@ -93,7 +94,16 @@
       <workItem from="1632729715180" duration="2668000" />
       <workItem from="1632798392423" duration="1464000" />
       <workItem from="1632888757631" duration="64000" />
+      <workItem from="1633916134760" duration="287000" />
     </task>
+    <task id="LOCAL-00001" summary="。。">
+      <created>1633916145294</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633916145294</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,5 +120,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="。。" />
+    <option name="LAST_COMMIT_MESSAGE" value="。。" />
   </component>
 </project>

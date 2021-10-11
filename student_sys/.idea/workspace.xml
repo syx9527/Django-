@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f000012-e414-44bf-b551-0426a4f23a3a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../NetBook/.idea/runConfigurations/NetBook.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NetBook/.idea/runConfigurations/migrate.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NetBook/.idea/runConfigurations/migrations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../NetBook/.idea/runConfigurations/upload.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangoProject/.idea/djangoProject.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../mysite7/.idea/mysite7.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/student/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/student/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/student_sys.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/student_sys.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/student/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_sys/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_sys/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_sys/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_sys/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="0f000012-e414-44bf-b551-0426a4f23a3a" name="Default Changelist" comment="。。" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

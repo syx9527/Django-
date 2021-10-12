@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="/static/blog/bs/css/bootstrap.css">
+<!--    <link rel="stylesheet" href="D:\Django学习\myBlog\static\blog\bs\css\bootstrap.css">-->
+
+</head>
+<body>
+
+<h3>欢迎登录</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-lg-offset-3">
+
+            <form action="/login/">
+                <div>
+                    <label for="user">用户名</label>
+                    <input type="text" id="user" class="form-control" width="60px">
+                </div>
+
+                <div>
+                    <label for="pwd">密码</label>
+                    <input type="password" id="pwd" class="form-control">
+                </div>
+                <input type="button" class="btn btn-default login_btn pull-right" value="登录">
+                <!--  <input type="button" class="btn btn-default login_btn glyphicon-log-in"> -->
+
+            </form>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

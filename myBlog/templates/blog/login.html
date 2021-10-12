@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
@@ -7,6 +8,7 @@
     <!--    <link rel="stylesheet" href="D:\Django学习\myBlog\static\blog\bs\css\bootstrap.css">-->
 
 </head>
+
 <body>
 
 <h3>欢迎登录</h3>
@@ -38,7 +40,9 @@
                         </div>
                     </div>
                 </div>
-                <input type="button" class="btn btn-default login_btn pull-right" value="登录">
+                <input type="button" class="btn btn-default login_btn pull-left" value="登录"><span
+                    class="error"></span>
+                <a href="/register/" class="btn btn-success pull-right">注册</a>
                 <!--  <input type="button" class="btn btn-default login_btn glyphicon-log-in"> -->
 
             </form>
@@ -60,7 +64,7 @@
     // 登录验证
     $(".login_btn").click(function () {
         $.ajax({
-            url: "",
+            url: "/login/",
             type: "post",
             data: {
                 user: $("#user").val(),
@@ -71,9 +75,26 @@
             },
             success: function (data) {
                 console.log(data)
+                if (data.user) {
+                    location.href = "/index/"
+                } else {
+                    // 验证码错误刷新验证码
+                    if (data.code === 0) {
+                        $("#valid_code_img")[0].src += "?"
+                    }
+                    // 显示提示信息
+                    $(".error").text(data.msg).css({
+                        "color": 'red',
+                        "margin-left": "10px"
+                    })
+                    setTimeout(function () {
+                        $(".error").text('')
+                    }, 2000)
+                }
             }
         })
     })
 </script>
 </body>
+
 </html>

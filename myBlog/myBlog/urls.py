@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from blog import views
+from blog.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', views.login)
+    path('login/', login),
+    path("get_validCode_img/", get_validCode_img)
 ]

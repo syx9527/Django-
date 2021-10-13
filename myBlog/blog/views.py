@@ -129,10 +129,17 @@ def home_site(request, username):
         blog_id=nid)
     print(tag_list)
     # 查询当前站点每一个年月的名称以及对应的文章数---单表分组查询 引入函数专门处理日期分组：
-    from django.db.models.functions import TruncMonth
+    # 方式一
     year_month = Article.objects.filter(user=userid).extra(
         select={"y_m_date": "date_format(create_time,'%%Y-%%m')"}).values('y_m_date').annotate(
         c=Count("nid")).values('y_m_date', 'c')
-    print(year_month)
 
-    return render(request, "blog/home_site.html", {"username": user.username})
+    # 方式二
+    from django.db.models.functions import TruncMonth
+    year_month2 = Article.objects.filter(user=userid).annotate(month=TruncMonth("create_time")).values(
+        "month").annotate(
+        c=Count(nid)).values("month", 'c')
+    print(year_month2)
+
+    # return render(request, "blog/home_site.html", {"username": user.username})
+    return render(request, "blog/home_site.html", {"username": username, "blog": blog, "article_list": article_list})

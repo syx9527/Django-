@@ -15,6 +15,11 @@ def index(request):
 
     return render(request, "blog/index.html", {"article_list": article_list})
 
+# def index(request):
+#     article_list = Article.objects.all()
+#
+#     return render(request, "blog/home.html", )
+
 
 def login(request):
     if request.method == "POST":

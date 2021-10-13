@@ -38,8 +38,7 @@ class UserForm(forms.Form):
         """全局钩子：校验两次输入的密码是否一致"""
         pwd = self.cleaned_data.get("pwd")
         re_pwd = self.cleaned_data.get("re_pwd")
-
-        if pwd == re_pwd:
+        if pwd and re_pwd and pwd == re_pwd:
             return self.cleaned_data
 
         else:

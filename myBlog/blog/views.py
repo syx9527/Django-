@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render, HttpResponseRedirect, HttpResponse
+from django.http import JsonResponse
 from django.contrib import auth
 
 from .MyForms import UserForm
@@ -39,6 +39,14 @@ def login(request):
     return render(request, 'blog/login.html')
 
 
+# 用户注销
+
+def logout(request):
+    auth.logout(request)  # request.session.flush()
+
+    return HttpResponseRedirect("/")
+
+
 def get_ValidCode_img(request):
     from .utils.validCode import get_valid_code_img
 
@@ -47,6 +55,7 @@ def get_ValidCode_img(request):
     return HttpResponse(data)
 
 
+# 注册
 def register(request):
     if request.is_ajax():
 
@@ -65,10 +74,10 @@ def register(request):
             pwd = form.cleaned_data.get("pwd")
             email = form.cleaned_data.get("email")
             avatar_obj = request.FILES.get("avatar")
-            print(avatar_obj)
-
-            user_obj = UserInfo.objects.create_user(username=user, password=pwd, email=email, avatar=avatar_obj)
-
+            if avatar_obj:
+                user_obj = UserInfo.objects.create_user(username=user, password=pwd, email=email, avatar=avatar_obj)
+            else:
+                user_obj = UserInfo.objects.create_user(username=user, password=pwd, email=email)
 
         else:
             # print(form.cleaned_data)

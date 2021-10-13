@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
-    <link rel="stylesheet" href="/static/blog/bs/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script src="/static/js/jquery-3.6.0.min.js"></script>
     <!--    <link rel="stylesheet" href="D:\Django学习\myBlog\static\blog\bs\css\bootstrap.css">-->
 
 </head>
@@ -40,9 +41,9 @@
                         </div>
                     </div>
                 </div>
-                <input type="button" class="btn btn-default login_btn pull-left" value="登录"><span
-                    class="error"></span>
-                <a href="/register/" class="btn btn-success pull-right">注册</a>
+                <input type="button" class="btn btn-info login_btn fa-pull-left" value="登录">
+                <span class="error"></span>
+                <a href="/register/" class="btn btn-success fa-pull-right">注册</a>
                 <!--  <input type="button" class="btn btn-default login_btn glyphicon-log-in"> -->
 
             </form>
@@ -52,7 +53,7 @@
 
     </div>
 </div>
-<script src="/static/js/jquery-3.6.0.min.js"></script>
+
 <script>
     // 刷新验证码
     $("#valid_code_img").click(

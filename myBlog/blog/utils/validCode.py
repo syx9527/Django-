@@ -15,12 +15,12 @@ def get_valid_code_img(request):
     # img_color = get_random_color()
     img_color = (153, 101, 143)
     font_color = get_random_color()
-    print("\nimg:", img_color, '\n', "font", font_color)
+    # print("\nimg:", img_color, '\n', "font", font_color)
     img = Image.new("RGB", (width, height), color=img_color)
 
     draw = ImageDraw.Draw(img)
     # kumo_font = ImageFont.truetype("static/blog/bs/fonts/云峰林桥体.ttf", size=30)
-    kumo_font = ImageFont.truetype("static/blog/bs/fonts/FZSJ-TUEDT.TTF", size=font_size)
+    kumo_font = ImageFont.truetype("static/fonts/FZSJ-TUEDT.TTF", size=font_size)
 
     # 生成随机5位验证码
 

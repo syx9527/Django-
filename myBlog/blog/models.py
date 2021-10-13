@@ -10,7 +10,7 @@ class UserInfo(AbstractUser):
     nid = models.AutoField(primary_key=True, )
     telephone = models.CharField(max_length=11, null=True, unique=True, )
     # 存储用户头像文件
-    avatar = models.FileField(upload_to='avatars/', default="/avatars/default.png")
+    avatar = models.FileField(upload_to='avatars/', default="avatars/default.png")
     # 在生成字段时就以当前时间存储，用于计算园龄
     create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
     # 业务分离,用户名下blog删除，则站点blog同时删除
@@ -83,14 +83,15 @@ class Article(models.Model):
     user = models.ForeignKey(verbose_name='作者', to='UserInfo', to_field='nid', on_delete=models.CASCADE,
                              related_name='Article_user', db_column='user')
     # 文章下对分类的删除也会对分类主表进行删除
-    category = models.ForeignKey(to='Category', to_field='nid', null=True, on_delete=models.CASCADE,
+    category = models.ForeignKey(verbose_name="文章分类",to='Category', to_field='nid', null=True, on_delete=models.CASCADE,
                                  related_name='Article_category', db_column='category')
     tags = models.ManyToManyField(
+
         to="Tag",  # to 参数用来指定与当前model类关联的model类
         through='Article2Tag',
         through_fields=('article', 'tag')
     )
-    content = models.TextField()
+    content = models.TextField(verbose_name="正文")
 
     def __str__(self):
         return self.title

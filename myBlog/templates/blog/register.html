@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
-    <link rel="stylesheet" href="/static/blog/bs/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
     <style>
         #avatar_img {
             margin-left: 20px;
@@ -43,7 +43,7 @@
                 <div class="form-group">
                     <label for="avatar">
                         头像
-                        <img id="avatar_img" width="40" height="40" src="/static/blog/img/default.png" alt="">
+                        <img id="avatar_img" width="40" height="40" src="/static/img/default.png" alt="">
                     </label>
 
                     <input type="file" id="avatar" accept="image/*">
@@ -51,7 +51,7 @@
                 </div>
 
 
-                <input type="button" class="btn btn-default reg_btn pull-left" value="注册">
+                <input type="button" class="btn btn-success reg_btn pull-left" value="注册">
                 <!--  <input type="button" class="btn btn-default login_btn glyphicon-log-in"> -->
 
             </form>
@@ -97,7 +97,7 @@
 
 
         form_data.append("user", $("#id_user").val());
-        console.log(form_data);
+
         // form_data.append("pwd", $("#id_pwd").val());
         // form_data.append("re_pwd", $("#id_re_pwd").val());
         // form_data.append("email", $("#id_email").val());
@@ -122,13 +122,13 @@
                 $(".form-group").removeClass("has-error"); //清除输入框变红
                 if (data.user) {
                     // 注册成功
-                    {#location.href = "/login/"#}
+                    location.href = "/login/"
                 } else {
 
 
                     // 展示此次提交错误信息！
                     $.each(data.msg, function (field, error_list) {
-                        {#console.log(field, error_list);#}
+                        console.log(field, error_list);
                         // 两次密码不一样
                         if (field === "__all__") {
                             $("#id_re_pwd").next().html(error_list[0]);

@@ -22,7 +22,7 @@ def login(request):
         valid_code_str = request.session.get("valid_code_str")
 
         # 检验验证码
-        if valid_code == valid_code_str:
+        if valid_code.upper() == valid_code_str.upper():
             user = auth.authenticate(username=user, password=pwd)
             if user:
                 auth.login(request, user)  # request.user==当前登录对象
@@ -52,6 +52,7 @@ def register(request):
 
         form = UserForm(request.POST)
 
+        # print(request.POST)
         response = {"user": None, "msg": None}
         if form.is_valid():
             print(form.cleaned_data)
@@ -60,17 +61,18 @@ def register(request):
             # 生成一条用户记录
 
             user = form.cleaned_data.get("user")
-            print("user", user)
+            print("user:", user)
             pwd = form.cleaned_data.get("pwd")
             email = form.cleaned_data.get("email")
             avatar_obj = request.FILES.get("avatar")
+            print(avatar_obj)
 
             user_obj = UserInfo.objects.create_user(username=user, password=pwd, email=email, avatar=avatar_obj)
 
 
         else:
-            print(form.cleaned_data)
-            print(form.errors)
+            # print(form.cleaned_data)
+            # print(form.errors)
             response['msg'] = form.errors
         return JsonResponse(response)
 

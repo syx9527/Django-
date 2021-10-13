@@ -7,6 +7,7 @@ from .models import UserInfo
 
 # 注册表单
 class UserForm(forms.Form):
+    """均为登录时需要校验的字段"""
     user = forms.CharField(max_length=32,
                            label="用户名",
                            error_messages={"required": "该字段不能为空"},
@@ -25,14 +26,16 @@ class UserForm(forms.Form):
                              widget=widgets.EmailInput(attrs={"class": "form-control"}))
 
     def clean_user(self):
-        user = self.cleaned_data.get("user")
-        user = UserInfo.objects.filter(username=user).first()
+        """局部钩子：校验用户创建时输入的用户名和MySQL存储的用户名"""
+        val = self.cleaned_data.get("user")
+        user = UserInfo.objects.filter(username=val).first()
         if not user:
-            return user
+            return val
         else:
             raise ValidationError("该用户已经注册")
 
     def clean(self):
+        """全局钩子：校验两次输入的密码是否一致"""
         pwd = self.cleaned_data.get("pwd")
         re_pwd = self.cleaned_data.get("re_pwd")
 

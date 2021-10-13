@@ -20,7 +20,7 @@ def get_valid_code_img(request):
 
     draw = ImageDraw.Draw(img)
     # kumo_font = ImageFont.truetype("static/blog/bs/fonts/云峰林桥体.ttf", size=30)
-    kumo_font = ImageFont.truetype("static/fonts/FZSJ-TUEDT.TTF", size=font_size)
+    kumo_font = ImageFont.truetype("static/fonts/Wagnasty.ttf", size=font_size)
 
     # 生成随机5位验证码
 

@@ -125,6 +125,10 @@
                     // 展示此次提交错误信息！
                     $.each(data.msg, function (field, error_list) {
                         console.log(field, error_list);
+                        if (field === "__all__") {
+                             $("#id_re_pwd" ).next().html(error_list[0]);
+                             $("#id_re_pwd").parent().addClass("has-error")
+                        };
                         $("#id_" + field).next().html(error_list[0]); //错误提示
                         $("#id_" + field).parent().addClass("has-error"); //错误框变红
                     })

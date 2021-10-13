@@ -1,12 +1,14 @@
-import requests
 from django.shortcuts import render
-import random
 from django.http import HttpResponse, JsonResponse
 from django.contrib import auth
+
 from .MyForms import UserForm
+from .models import UserInfo
 
 
 # Create your views here.
+
+
 def index(request):
     return render(request, "blog/index.html")
 
@@ -47,12 +49,25 @@ def get_ValidCode_img(request):
 
 def register(request):
     if request.is_ajax():
-        print(request.POST)
+
         form = UserForm(request.POST)
 
         response = {"user": None, "msg": None}
         if form.is_valid():
+            print(form.cleaned_data)
             response['user'] = form.cleaned_data.get("user")
+
+            # 生成一条用户记录
+
+            user = form.cleaned_data.get("user")
+            print("user", user)
+            pwd = form.cleaned_data.get("pwd")
+            email = form.cleaned_data.get("email")
+            avatar_obj = request.FILES.get("avatar")
+
+            user_obj = UserInfo.objects.create_user(username=user, password=pwd, email=email, avatar=avatar_obj)
+
+
         else:
             print(form.cleaned_data)
             print(form.errors)

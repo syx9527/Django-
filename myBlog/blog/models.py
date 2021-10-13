@@ -10,7 +10,7 @@ class UserInfo(AbstractUser):
     nid = models.AutoField(primary_key=True, )
     telephone = models.CharField(max_length=11, null=True, unique=True, )
     # 存储用户头像文件
-    avatar = models.FileField(upload_to='avatars/', default="default_avatar.png")
+    avatar = models.FileField(upload_to='avatars/', default="/avatars/default.png")
     # 在生成字段时就以当前时间存储，用于计算园龄
     create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
     # 业务分离,用户名下blog删除，则站点blog同时删除

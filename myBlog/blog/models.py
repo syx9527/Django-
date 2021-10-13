@@ -75,9 +75,9 @@ class Article(models.Model):
     desc = models.CharField(max_length=255, verbose_name='文章描述')
     create_time = models.DateTimeField(verbose_name='创建时间', auto_now_add=True)
 
-    # comment_count = models.IntegerField(default=0)
-    # up_count = models.IntegerField(default=0)
-    # down_count = models.IntegerField(default=0)
+    comment_count = models.IntegerField(default=0)
+    up_count = models.IntegerField(default=0)
+    down_count = models.IntegerField(default=0)
 
     # 文章表下的用户删除之后，原来的用户信息也会删除，因为文章表必须要有作者
     user = models.ForeignKey(verbose_name='作者', to='UserInfo', to_field='nid', on_delete=models.CASCADE,

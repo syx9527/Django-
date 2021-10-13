@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/css/home_site_self.css' %}">
+    <link rel="shortcut icon" href="{% static '/img/404.ico' %}" type="image/x-icon">
+    <title>404-页面丢失啦</title>
+</head>
+<body>
+<div class="main-container">
+    <img class="img-container container-item">
+    <img src="{% static '/img/profile.png' %}" style="width: 40vw;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);">
+
+    <div class="text-container container-item">
+        <div class="code" style="width:100%; text-align: center">404</div>
+        <div class="msg" style="width:100%; text-align: center">你查看的页面貌似丢失了呢...</div>
+        <div class="action" style="width:100%; text-align: center">请确认您输入的网址正确，若问题持续存在，请发送邮件至
+            1275241305@qq.com，与AUTOsyx联系
+        </div>
+        <div class="action" style="width:100%; text-align: center"><p><a href="/">返回网站首页</a></p></div>
+    </div>
+</div>
+</body>
+</html>

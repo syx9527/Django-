@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from blog.views import *
+from django.conf import settings
+from django.views import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +26,11 @@ urlpatterns = [
     path('register/', register),
     path('index/', index),
     re_path('^$', index),
-    path("get_validCode_img/", get_ValidCode_img)
+    path("get_validCode_img/", get_ValidCode_img),
+
+    # media配置
+    re_path(r'^media/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}),
+
+    # 用户站点
+    re_path('^(?P<username>\w+)$', home_site),
 ]

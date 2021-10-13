@@ -41,8 +41,12 @@
                         </div>
                     </div>
                 </div>
-                <input type="button" class="btn btn-info login_btn fa-pull-left" value="登录">
-                <span class="error"></span>
+                <br>
+                <div>
+                    <input type="button" class="btn btn-info login_btn fa-pull-left" value="登录">
+                    <span class="error"></span>
+                </div>
+                <br>
                 <a href="/register/" class="btn btn-success fa-pull-right">注册</a>
                 <!--  <input type="button" class="btn btn-default login_btn glyphicon-log-in"> -->
 
@@ -80,7 +84,7 @@
                     location.href = "/index/"
                 } else {
                     // 验证码错误刷新验证码
-                    if (data.code === 0) {
+                    if (data.code != 1) {
                         $("#valid_code_img")[0].src += "?"
                     }
                     // 显示提示信息

@@ -13,7 +13,8 @@ from .models import *
 def index(request):
     article_list = Article.objects.all()
 
-    return render(request, "blog/index.html", {"article_list": article_list})
+    # return render(request, "blog/index.html", {"article_list": article_list})
+    return render(request, "Tale/index.html", {"article_list": article_list})
 
 # def index(request):
 #     article_list = Article.objects.all()

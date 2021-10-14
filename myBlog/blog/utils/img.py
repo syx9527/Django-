@@ -1,6 +1,6 @@
 def cat_img(path):
     from PIL import Image
-    path = "media/" + path
+
     image = Image.open(path)
     image = image.convert('RGB')
     w, h = image.size

@@ -74,15 +74,12 @@
                         <a class="search-trigger"><i class="ion-ios-search-strong"></i></a>
 
                         <!--个人头像-->
-                        <div data-toggle="dropdown"
-                             aria-haspopup="true" aria-expanded="false" id="dLabel" class="img-circle"
-                             style="display: inline-block;background-image:url(/media/{{ request.user.avatar }}); width: 50px; height: 50px; vertical-align: -30px; background-size: cover; background-repeat: no-repeat">
-                        </div>
-
+                        <img src="/media/{{ request.user.avatar }}" alt="avatar" data-toggle="dropdown"
+                             aria-haspopup="true" aria-expanded="false" width="50" id="dLabel" class="img-circle"/>
 
                         <ul aria-labelledby="dLabel" class="dropdown-menu account-dropdown">
 
-                            <li><a href="{{ request.user.blog.site_name }}">我的<i class="ion-ios-person"></i></a></li>
+                            <li><a href="/{{ request.user.blog.site_name }}/">我的<i class="ion-ios-person"></i></a></li>
                             <li><a href="#!">设置<i class="ion-ios-cog"></i></a></li>
                             <li class="line"></li>
                             <li><a href=/logout/>退出登录<i class="ion-ios-exit"></i></a></li>
@@ -631,13 +628,15 @@
         </div>
     </div>
 </footer>
-
+<script src="/static/assets/js/jquery-3.6.0.min.js"></script>
 <script src="/static/assets/js/packages.js"></script>
 <script src="/static/assets/js/theme.js"></script>
 <!--<script src="/static/assets/js/map.js"></script>-->
 <script src="/static/assets/js/contact.js"></script>
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
-
 <script type="text/javascript" src="/static/assets/js/slider-initialization.js"></script>
+{% block js %}
+
+{% endblock %}
 </body>
 </html>

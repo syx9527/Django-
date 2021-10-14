@@ -41,76 +41,36 @@
             <a class="blog-nav-item" href="#">New features</a>
             <a class="blog-nav-item" href="#">Press</a>
             <a class="blog-nav-item" href="#">New hires</a>
-            <a class="blog-nav-item" href="#">About</a>
+            <a class="blog-nav-item  " href="#">关于</a>
+            <a class="blog-nav-item  navbar-right" href="#">管理</a>
         </nav>
     </div>
 </div>
 
 
-
 <div class="container">
 
     <div class="blog-header">
-        <h1 class="blog-title">引导博客</h1>
+        <h1 class="blog-title">{{ blog.title }}</h1>
         <p class="lead blog-description">使用 Bootstrap 创建博客的官方示例模板。</p>
     </div>
 
     <div class="row">
 
         <div class="col-sm-8 blog-main">
+            <!-- /.blog-post -->
+            {% for article in article_list %}
+                <div class="blog-post">
+                    <h2 class="blog-post-title">{{ article.title }}</h2>
+                    <span class="blog-post-meta">2013年12月23日 由 <a href="#">{{  article.user.username }}</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-comment">评论({{ article.comment_count }})</span>&nbsp;&nbsp;&nbsp;
+                    <span class="glyphicon glyphicon-thumbs-up">点赞({{ article.up_count }})</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <p>{{ article.desc }}</p>
+                </div>
 
-            <div class="blog-post">
-                <h2 class="blog-post-title">示例博客文章</h2>
-                <p class="blog-post-meta">2014年1月1日 由 <a href="#">马克</a></p>
+            {% endfor %}
 
-                <p>T此博客文章显示了支持和风格与 Bootstrap 的一些不同类型的内容。支持基本排版、图像和代码。</p>
-                <hr>
-                <p>索西斯 · 纳托克 · 佩纳蒂布斯和马格尼斯不分区蒙特斯， 纳塞图尔 · 里迪库卢斯 · 穆斯。埃尼安 · 欧 · 利奥 · 夸姆佩伦特斯克 · 奥纳雷 · 塞姆 · 莱西尼亚 · 夸姆 ·
-                    韦内纳蒂斯前庭。塞德 · 普苏埃 · 康塞图尔 · 埃斯特在洛博蒂斯。克拉斯 · 马蒂斯 · 康塞特 · 普鲁斯坐在一个美特发酵。</p>
-                <blockquote>
-                    <p>库拉比图尔平淡的临时门廊。 <strong>努拉姆奎斯里斯天空骨灰盒莫利斯</strong> 奥纳雷维尔欧利奥。努拉姆 id 多洛伊德尼布乌特里西斯维希库拉乌特 id 精英。</p>
-                </blockquote>
-                <p>埃蒂亚姆 <em>波尔塔· 塞姆 · 马莱苏达 · 马格纳</em> ·莫利斯 · 尤斯莫德克拉斯 · 马蒂斯 · 康塞特 · 普鲁斯坐在一个美特发酵。埃尼安 · 莱西尼亚 · 比本杜姆 · 努拉 ·
-                    塞德 · 塞斯特。</p>
-                <h2>标题</h2>
-                <p>维瓦穆斯 · 萨吉蒂斯 · 拉库斯 · 维尔 · 奥古 · 劳雷特 · 鲁特鲁姆 · 福西布斯 · 多勒 · 奥克托杜伊斯 · 莫利斯， 埃斯特 · 非康莫多 · 卢图斯， 尼西 · 埃拉特 ·
-                    波特蒂托 · 利古拉， 埃吉特 · 莱西尼亚 · 奥迪奥 · 塞姆 · 内克 · 精英。莫比利奥里苏斯， 波尔塔 ac 消费 ac， 前庭在 eros 。</p>
-                <h3>副标题</h3>
-                <p>库姆 · 索西斯 · 纳托克 · 佩纳蒂布斯和马格尼斯不分区蒙特斯， 纳塞图尔 · 里迪库卢斯 · 穆斯。</p>
-                <pre><code>Example code block</code></pre>
-                <p>埃尼安 · 莱西尼亚 · 比本杜姆 · 努拉 · 塞德 · 塞斯特。埃蒂亚姆 · 波尔塔 · 塞姆 · 马莱苏达 · 马格纳 · 莫利斯 · 尤斯莫德福斯 · 达皮布斯， 特勒斯 · 阿克 · 库苏斯
-                    · 康莫多， 托特 · 毛里斯调味品尼布， 乌特 · 发酵马萨。</p>
-                <h3>副标题</h3>
-                <p>索西斯 · 纳托克 · 佩纳蒂布斯和马格尼斯不分区蒙特斯， 纳塞图尔 · 里迪库卢斯 · 穆斯。埃尼安 · 莱西尼亚 · 比本杜姆 · 努拉 · 塞德 · 塞斯特。埃蒂亚姆门没有马勒苏达 · 马格纳 ·
-                    莫利斯 · 尤斯莫德。福斯 · 达皮布斯， 特勒斯 · 阿克 · 库苏斯 · 康莫多， 托托 · 毛里斯调味品尼布， 乌特 · 发酵马萨 · 正义坐在阿梅特 · 里苏斯。</p>
-                <ul>
-                    <li>普拉森特 · 科莫多 · 库苏斯 · 马格纳， 天鹅绒斯内斯克 · 尼斯尔 · 康塞特等人。</li>
-                    <li>多尼克 id 精英不会带我怀孕在 eget 元。</li>
-                    <li>努拉维塔精英利贝罗， 一个法雷特拉奥格。</li>
-                </ul>
-                <p>多诺克 · 乌兰科默 · 努拉非梅图斯 · 奥克托 · 弗林吉拉努拉维塔精英利贝罗， 一个法雷特拉奥格。</p>
-                <ol>
-                    <li>维斯蒂布鲁姆 Id 利古拉波尔塔费利斯尤斯莫德森珀。</li>
-                    <li>库姆 · 索西斯 · 纳托克 · 佩纳蒂布斯和马格尼斯不分区蒙特斯， 纳塞图尔 · 里迪库卢斯 · 穆斯。</li>
-                    <li>梅塞纳斯 · 塞德 · 迪亚姆 · 埃吉特 · 里苏斯 · 瓦里乌斯 · 布兰迪特坐在阿梅特非麦格纳。</li>
-                </ol>
-                <p>克拉斯 · 马蒂斯 · 康塞特 · 普鲁斯坐在一个美特发酵。塞德 · 普苏埃 · 康塞图尔 · 埃斯特在洛博蒂斯。</p>
-            </div><!-- /.blog-post -->
 
-            <div class="blog-post">
-                <h2 class="blog-post-title">另一篇博文</h2>
-                <p class="blog-post-meta">2013年12月23日 由 <a href="#">雅各布</a></p>
-
-                <p>索西斯 · 纳托克 · 佩纳蒂布斯和马格尼斯 <a href="#">不分区蒙特斯，</a>纳塞图尔 · 里迪库卢斯 · 穆斯。埃尼安 · 欧 · 利奥 · 夸姆佩伦特斯克 · 奥纳雷 · 塞姆 ·
-                    莱西尼亚 · 夸姆 · 韦内纳蒂斯前庭。塞德 · 普苏埃 · 康塞图尔 · 埃斯特在洛博蒂斯。克拉斯 · 马蒂斯 · 康塞特 · 普鲁斯坐在一个美特发酵。</p>
-                <blockquote>
-                    <p>库拉比图尔平淡的临时门廊。 <strong>努拉姆奎斯里斯天空骨灰盒莫利斯</strong> 奥纳雷维尔欧利奥。努拉姆 id 多洛伊德尼布乌特里西斯维希库拉乌特 id 精英。</p>
-                </blockquote>
-                <p>埃蒂亚姆 · 波尔塔· <em>塞姆 · 马莱苏达 · 马格纳 </em> ·莫利斯 · 尤斯莫德克拉斯 · 马蒂斯 · 康塞特 · 普鲁斯坐在一个美特发酵。埃尼安 · 莱西尼亚 · 比本杜姆 · 努拉
-                    · 塞德 · 塞斯特。</p>
-                <p>维瓦穆斯 · 萨吉蒂斯 · 拉库斯 · 维尔 · 奥古 · 劳雷特 · 鲁特鲁姆 · 福西布斯 · 多勒 · 奥克托杜伊斯 · 莫利斯， 埃斯特 · 非康莫多 · 卢图斯， 尼西 · 埃拉特 ·
-                    波特蒂托 · 利古拉， 埃吉特 · 莱西尼亚 · 奥迪奥 · 塞姆 · 内克 · 精英。莫比利奥里苏斯， 波尔塔 ac 消费 ac， 前庭在 eros 。</p>
-            </div><!-- /.blog-post -->
 
 
             <nav>

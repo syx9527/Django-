@@ -30,7 +30,7 @@ urlpatterns = [
 
     # media配置
     re_path(r'^media/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}),
-
+    re_path('^(?P<htmlname>.*?\.html)$', other),
     # 用户站点
     re_path('^(?P<username>\w+)$', home_site),
 ]

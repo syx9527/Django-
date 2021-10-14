@@ -14,7 +14,15 @@ def index(request):
     article_list = Article.objects.all()
 
     # return render(request, "blog/index.html", {"article_list": article_list})
-    return render(request, "Tale/index.html", {"article_list": article_list})
+    return render(request, "Tale/base.html", {"article_list": article_list})
+
+
+def other(request, htmlname):
+    # article_list = Article.objects.all()
+    template_name = f"Tale/{htmlname}"
+    # return render(request, "blog/index.html", {"article_list": article_list})
+    return render(request, template_name=template_name, )
+
 
 # def index(request):
 #     article_list = Article.objects.all()

@@ -25,6 +25,7 @@ urlpatterns = [
     path('logout/', logout),
     path('register/', register),
     path('index/', index),
+    path('about/', about),
     re_path('^$', index),
     path("get_validCode_img/", get_ValidCode_img),
 
@@ -32,5 +33,5 @@ urlpatterns = [
     re_path(r'^media/(?P<path>.*)$', static.serve, {'document_root': settings.MEDIA_ROOT}),
     re_path('^(?P<htmlname>.*?\.html)$', other),
     # 用户站点
-    re_path('^(?P<username>\w+)$', home_site),
+    re_path('^(?P<stiename>\w+)$', home_site),
 ]

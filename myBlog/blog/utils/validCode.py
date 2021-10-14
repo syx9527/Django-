@@ -55,3 +55,5 @@ def get_valid_code_img(request):
     data = f.getvalue()
 
     return data
+
+

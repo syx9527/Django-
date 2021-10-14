@@ -6,6 +6,9 @@ from django.contrib import auth
 from .MyForms import UserForm
 from .models import *
 
+from .utils.img import cat_img
+from django.conf import settings
+
 
 # Create your views here.
 
@@ -17,6 +20,13 @@ def index(request):
     return render(request, "Tale/base.html", {"article_list": article_list})
 
 
+def about(request):
+    article_list = Article.objects.all()
+
+    # return render(request, "blog/index.html", {"article_list": article_list})
+    return render(request, "Tale/about.html", )
+
+
 def other(request, htmlname):
     # article_list = Article.objects.all()
     template_name = f"Tale/{htmlname}"
@@ -24,12 +34,7 @@ def other(request, htmlname):
     return render(request, template_name=template_name, )
 
 
-# def index(request):
-#     article_list = Article.objects.all()
-#
-#     return render(request, "blog/home.html", )
-
-
+# 登录
 def login(request):
     if request.method == "POST":
         response = {"user": None, "msg": None, "code": None}
@@ -91,8 +96,15 @@ def register(request):
             pwd = form.cleaned_data.get("pwd")
             email = form.cleaned_data.get("email")
             avatar_obj = request.FILES.get("avatar")
+            print(avatar_obj.__str__())
             if avatar_obj:
+                import os
+
+
+
+                cat_img(avatar_obj.__str__())
                 user_obj = UserInfo.objects.create_user(username=user, password=pwd, email=email, avatar=avatar_obj)
+
             else:
                 user_obj = UserInfo.objects.create_user(username=user, password=pwd, email=email)
 
@@ -106,12 +118,12 @@ def register(request):
     return render(request, "blog/register.html", {"form": form})
 
 
-def home_site(request, username):
+def home_site(request, stiename):
     """
     个人站点视图函数
     """
-    print("username:", username)
-    user = UserInfo.objects.filter(blog__site_name=username).first()
+    print("username:", stiename)
+    user = UserInfo.objects.filter(blog__site_name=stiename).first()
 
     # 判断用户是否存在
     if not user:
@@ -156,4 +168,4 @@ def home_site(request, username):
     print(year_month2)
 
     # return render(request, "blog/home_site.html", {"username": user.username})
-    return render(request, "blog/home_site.html", {"username": username, "blog": blog, "article_list": article_list})
+    return render(request, "Tale/author.html", {"user": user, "blog": blog, "article_list": article_list})

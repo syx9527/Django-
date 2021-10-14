@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Tale | Storytelling Blog HTML Template</title>
+    <!--标题-->
+    <title>{% block title %}主页{% endblock %}</title>
+
+
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta name="HandheldFriendly" content="true"/>
@@ -32,7 +35,10 @@
     <!-- MAIN STYLESHEETS-->
     <link rel="stylesheet" href="/static/assets/css/bootstrap.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="/static/assets/css/theme.css" type="text/css" media="all"/>
+
+
 </head>
+
 <body>
 
 
@@ -50,58 +56,66 @@
 <!--导航栏-->
 <header class="main-navigation">
     <div class="container-fluid">
-        <div class="col-md-2 col-sm-3 col-xs-7">
-            <div id="navicon" class="toggle-menu menu-left push-body">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-            <a href="index.html" class="logo"><img src="/static/assets/images/logo/logo-dark.png" alt="Logo"/></a>
-        </div>
-        <div class="col-md-10 col-sm-9 col-xs-5">
-            <nav>
-                <div class="nav-tools"><a href="#!" class="btn btn-primary write-your-tale-btn">管理</a><a
-                        class="search-trigger"><i class="ion-ios-search-strong"></i></a>
 
-                    <!--用户头像-->
-                    <img src="/static/assets/images/avatar-4.jpg" alt="avatar" data-toggle="dropdown"
-                         aria-haspopup="true" aria-expanded="false" width="50" id="dLabel" class="img-circle"/>
-                    <ul aria-labelledby="dLabel" class="dropdown-menu account-dropdown">
-                        <li><a href="#!">我的<i class="ion-ios-person"></i></a></li>
-                        <li><a href="#!">设置<i class="ion-ios-cog"></i></a></li>
-                        <li class="line"></li>
-                        <li><a href="#!">退出登录<i class="ion-ios-exit"></i></a></li>
-                    </ul>
-                </div>
-                <div class="nav-categories">
-                    <ul>
-                        <li class="active"><a href="#!">Culture</a></li>
-                        <li><a href="#!">Nature</a></li>
-                        <li><a href="#!">Economics</a></li>
-                        <li><a href="#!">Design</a></li>
-                        <li class="more"><a href="#!"><i class="ion-ios-more"></i></a></li>
-                    </ul>
-                </div>
-            </nav>
+        <!--顶部导航栏-->
+        <div class="col-md-2 col-sm-3 col-xs-7">
+            <!--LOGO-->
+            <a href="/" class="logo"><img src="/static/assets/images/logo/logo-dark.png" alt="Logo"/></a>
         </div>
-        <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left text-left"><a href="#" class="menu-close-btn"><i
-                class="icon ion-ios-close-outline"></i></a>
+
+        <div class="col-md-10 col-sm-9 col-xs-5">
+
+            <nav>
+                <div class="nav-tools">
+
+
+                    {% if request.user.is_authenticated %}
+                        <a href="#!" class="btn btn-primary write-your-tale-btn">管理</a>
+                        <a class="search-trigger"><i class="ion-ios-search-strong"></i></a>
+
+                        <!--个人头像-->
+                        <div data-toggle="dropdown"
+                             aria-haspopup="true" aria-expanded="false" id="dLabel" class="img-circle"
+                             style="display: inline-block;background-image:url(/media/{{ request.user.avatar }}); width: 50px; height: 50px; vertical-align: -30px; background-size: cover; background-repeat: no-repeat">
+                        </div>
+
+
+                        <ul aria-labelledby="dLabel" class="dropdown-menu account-dropdown">
+
+                            <li><a href="{{ request.user.blog.site_name }}">我的<i class="ion-ios-person"></i></a></li>
+                            <li><a href="#!">设置<i class="ion-ios-cog"></i></a></li>
+                            <li class="line"></li>
+                            <li><a href=/logout/>退出登录<i class="ion-ios-exit"></i></a></li>
+                        </ul>
+
+                    {% else %}
+
+
+                        <a href="/login/" class="btn btn-primary">登录</a>
+                        <a href="/register/" class="btn btn-primary">注册</a>
+
+
+
+
+                    {% endif %}
+
+                </div>
+
+            </nav>
+
+        </div>
+
+        <!--左侧导航栏，暂时不需要，注释了-->
+        <!--
+        <div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left text-left">
+            <a href="#" class="menu-close-btn"><i class="icon ion-ios-close-outline"></i></a>
             <div id="cssmenu">
                 <ul>
                     <li class="header">Navigation</li>
-                    <li><a href="#!">Home</a>
-                        <ul>
-                            <li><a href="home-magazine.html">Magazine</a></li>
-                            <li><a href="index.html">Story-telling Blog</a></li>
-                        </ul>
+                    <li><a href="index.html">Home</a>
+
                     </li>
-                    <li><a href="#!">Blog</a>
-                        <ul>
-                            <li><a href="blog.html">Default</a></li>
-                            <li><a href="blog-sidebar.html">Sidebar Right</a></li>
-                            <li><a href="blog-sidebar-left.html">Sidebar Left</a></li>
-                        </ul>
-                    </li>
+
                     <li><a href="#!">Posts</a>
                         <ul>
                             <li><a href="single-post.html">Default</a></li>
@@ -131,9 +145,13 @@
             </div>
             <p class="copyright">TALE TEMPLATE &copy; 2015 </p>
         </div>
+        -->
+
     </div>
 </header>
 
+<!--继承主体-->
+<!--主体内容-->
 {% block body %}
 
     {% block head_img %}
@@ -184,6 +202,7 @@
 
     {% endblock %}
 
+    <!--正文部分-->
     {% block body_content %}
         <section class="section section-semi-white text-left">
             <div class="container-fluid">
@@ -385,7 +404,7 @@
         </section>
     {% endblock %}
 
-
+    <!--剩下的不知道该放啥-->
     <section class="section-nopadding">
         <div class="container-fluid">
             <div class="row">
@@ -556,22 +575,27 @@
             <div class="col-md-2"><img src="/static/assets/images/logo/logo-dark.png" alt="footer-logo" width="70"/>
             </div>
             <div class="col-md-2 small-screen-margin-top">
-                <h4>Tale Template</h4>
+                <h4>导航</h4>
                 <ul class="footer-menu text-left">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Editor</a></li>
-                    <li><a href="">Stories</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li class="small"><a href="/">主页</a></li>
+                    <li class="small"><a href="/about/">关于站点</a></li>
+
                 </ul>
             </div>
             <div class="col-md-2">
-                <h4>Are you an author?</h4>
+                <h4>加入我们</h4>
                 <ul class="footer-menu text-left">
-                    <li><a href="">FAQ</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Tale Magazine</a></li>
-                    <li><a href="">Licensing</a></li>
+                    <li class="small"><a href="/login/">登录</a></li>
+                    <li class="small"><a href="/register/">注册</a></li>
+
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h4>联系站主</h4>
+                <ul class="footer-menu text-left">
+                    <li class="small"><a href="">email</a></li>
+                    <li class="small"><a href="">phone</a></li>
+
                 </ul>
             </div>
             <div class="col-md-2"></div>
@@ -593,9 +617,9 @@
                 <div class="col-md-6">
                     <div class="row">
                         <ul class="social-icons pull-left">
-                            <li><a href="#!"><i class="ion-social-twitter"></i></a></li>
-                            <li><a href="#!"><i class="ion-social-facebook"></i></a></li>
-                            <li><a href="#!"><i class="ion-social-instagram"></i></a></li>
+                            <li><a href="#!"><i class="ion-social-python"></i></a></li>
+                            <li><a href="#!"><i class="ion-social-markdown"></i></a></li>
+                            <li><a href="#!"><i class="ion-social-nodejs"></i></a></li>
                         </ul>
                     </div>
                 </div>

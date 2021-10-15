@@ -30,7 +30,7 @@
                                 <div class="col-md-12">
 
                                     <!--头像下背景字-->
-                                    <div class="section-head decoration-left"><span class="overlay">latest</span>
+                                    <div class="section-head decoration-left"><span class="overlay">BLOG</span>
 
 
                                         <h2>{{ blog.title }}</h2>
@@ -40,11 +40,9 @@
                                 </div>
 
                                 <!--文章-->
-                                <div id="reply_form">
-
+                                <div id="article_list">
 
                                 </div>
-                                <!--博客列表-->
 
 
                                 <div class="col-md-12 margin-top"><a href="home-magazine.html" class="btn btn-primary">More
@@ -67,23 +65,9 @@
                                 <div class="col-md-12">
                                     <div class="widget">
                                         <h4>标签</h4>
-                                        <ul class="tags-widget">
-                                            {% if tag_list %}
+                                        <ul class="tags-widget" id="tag_list">
+                                            <!--标签-->
 
-
-                                                {% for tag in tag_list %}
-                                                    <li
-                                                            class="button-tag">
-                                                        <a class="author_btn tags" name="tag" id="{{ tag.title }}"
-
-                                                           href="javascript:;">{{ tag.title }}({{ tag.c }})</a>
-                                                    </li>
-                                                {% endfor %}
-                                            {% else %}
-                                                <li
-                                                        class="button-tag">无
-                                                </li>
-                                            {% endif %}
 
                                         </ul>
                                     </div>
@@ -93,19 +77,7 @@
                                 <div class="col-md-12">
                                     <div class="widget">
                                         <h4>分类</h4>
-                                        <ul class="categories-widget">
-                                            {% if cate_list %}
-                                                {% for cate in cate_list %}
-                                                    <li><a href="javascript:;" class="author_btn"
-                                                           name="cate"
-                                                           id="{{ cate.title }}">{{ cate.title }}({{ cate.c }})</a>
-                                                    </li>
-                                                {% endfor %}
-                                            {% else %}
-                                                <li
-                                                        class="button-tag">无
-                                                </li>
-                                            {% endif %}
+                                        <ul class="categories-widget" id="cate_list">
 
                                         </ul>
                                     </div>
@@ -116,21 +88,8 @@
                                 <div class="col-md-12">
                                     <div class="widget">
                                         <h4>归档</h4>
-                                        <ul class="categories-widget">
-                                            {% if year_month %}
-                                                {% for year in year_month %}
-                                                    <li><a class="author_btn" id="{{ year.month|date:"Y-m" }} "
-                                                           name="month"
-                                                           href="javascript:;">
-                                                        {{ year.month|date:"Y-m" }}({{ year.c }})
-                                                    </a>
-                                                    </li>
-                                                {% endfor %}
-                                            {% else %}
-                                                <li
-                                                        class="button-tag">无
-                                                </li>
-                                            {% endif %}
+                                        <ul class="categories-widget" id="year_month">
+
 
                                         </ul>
                                     </div>
@@ -145,57 +104,3 @@
     {% endblock %}
 {% endblock %}
 
-{% block js %}
-    <script>
-
-        var username = $("#user_name").text();
-        $(document).ready(function () {
-
-            $.ajax({
-                url: "/query_article_list/",
-                type: "post",
-                async: false,
-                username: "{{ user.username }}",
-                data: {
-                    name: 'all',
-                    csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
-                    username: username,
-                },
-
-                success: function (data) {
-                    console.log(data)
-                    $('#reply_form').html(data.content_html);
-                    {#article_list = data#}
-                }
-            })
-        })
-
-        $(".author_btn").click(function () {
-
-                var id = this.id;
-                var name = this.getAttribute("name");
-
-
-                $.ajax({
-                    url: "/query_article_list/",
-                    type: "post",
-                    async: false,
-                    username: "{{ user.username }}",
-                    data: {
-                        id: id,
-                        name: name,
-                        csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
-                        username: username,
-                    },
-                    success: function (data) {
-                        console.log(data)
-                        $('#reply_form').html(data.content_html);
-                        {#article_list = data#}
-                    }
-                })
-            }
-        )
-
-
-    </script>
-{% endblock %}

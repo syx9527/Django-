@@ -1,0 +1,14 @@
+{% if year_month %}
+    {% for year in year_month %}
+        <li><a class="author_btn" id="{{ year.month|date:"Y-m" }} "
+               name="month"
+               href="javascript:;">
+            {{ year.month|date:"Y-m" }}({{ year.c }})
+        </a>
+        </li>
+    {% endfor %}
+{% else %}
+    <li
+            class="button-tag">无
+    </li>
+{% endif %}

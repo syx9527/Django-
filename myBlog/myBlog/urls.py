@@ -19,13 +19,18 @@ from blog.views import *
 from django.conf import settings
 from django.views import static
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', login),
     path('logout/', logout),
     path('register/', register),
     path('index/', index),
-    path('query_article_list/', query_article_list, name="query"),
+    path('query_article_list/', query_article_list, name="article"),
+    path('query_tag_list/', query_tag_list, name="tag"),
+    path('query_cate_list/', query_cate_list, name="cate"),
+    path('query_month_list/', query_month_list, name="month"),
+
     path('about/', about),
     re_path('^$', index),
     path("get_validCode_img/", get_ValidCode_img),
@@ -35,5 +40,7 @@ urlpatterns = [
     re_path('^(?P<htmlname>.*?\.html)$', other),
     # 用户站点
     re_path('^(?P<stiename>\w+)/$', home_site),
+
+    re_path(r'^static/(?P<path>.*)$', static.serve, {'document_root': settings.STATIC_ROOT}),
 
 ]

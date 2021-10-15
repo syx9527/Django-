@@ -35,12 +35,14 @@
     <!-- MAIN STYLESHEETS-->
     <link rel="stylesheet" href="/static/assets/css/bootstrap.css" type="text/css" media="all"/>
     <link rel="stylesheet" href="/static/assets/css/theme.css" type="text/css" media="all"/>
+    {% block header %}
 
+    {% endblock %}
 
 </head>
 
 <body>
-
+{% csrf_token %}
 
 <div class="search">
     <div class="container-fluid">
@@ -208,117 +210,23 @@
                         <div class="col-md-8">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <div class="section-head decoration-left"><span class="overlay">latest</span>
-                                        <h2>Latest posts</h2>
-                                        <p>The newest stories for you</p>
+
+                                    <!--头像下背景字-->
+                                    <div class="section-head decoration-left"><span class="overlay">BLOG</span>
+
+
+                                        <h2>主页</h2>
+                                        <p>这里有各个作者的博客</p>
                                         <hr/>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <article class="blog-post"><a href="single-post.html"><img
-                                            src="/static/assets/images/blog-5.jpg" alt="Post image"/></a>
-                                        <div class="blog-post-details">
-                                            <div class="secondary-information text-center small-screen-hidden"><img
-                                                    src="/static/assets/images/avatar-2.jpg" alt="Author image"
-                                                    class="img-circle"/><i class="ion-ios-heart-outline"></i><span
-                                                    class="favorites-counter">98</span></div>
-                                            <a href="single-post.html">
-                                                <h3>We love writing<small>read more</small></h3></a>
-                                            <p>To show you given waters. Fruit. Together. Fruit us green sea sea without
-                                                a,
-                                                wherein which. Fill you image rule Herb saying said was that living.
-                                                Face
-                                                our
-                                                whales One beginning two appear to created for form a. man that's a
-                                                lot.</p>
-                                            <a
-                                                    href="single-post.html" class="comments"><i
-                                                    class="ion-ios-chatbubble-outline"></i>32</a><a
-                                                href="single-post.html"
-                                                title="Estimated read time"
-                                                class="date"><i
-                                                class="ion-ios-clock-outline"></i>3 min</a>
-                                        </div>
-                                        <hr/>
-                                    </article>
+
+                                <!--文章-->
+                                <div id="article_list">
+
                                 </div>
-                                <div class="col-md-6">
-                                    <article class="blog-post"><a href="single-post.html"><img
-                                            src="/static/assets/images/blog-4.jpg" alt="Post image"/></a>
-                                        <div class="blog-post-details">
-                                            <div class="secondary-information text-center small-screen-hidden"><img
-                                                    src="/static/assets/images/avatar-3.jpg" alt="Author image"
-                                                    class="img-circle"/><i class="ion-ios-heart-outline"></i><span
-                                                    class="favorites-counter">62</span></div>
-                                            <a href="single-post.html">
-                                                <h3>The day I live<small>read more</small></h3></a>
-                                            <p>First week given waters. Fruit. Together. Fruit us green sea sea without
-                                                a,
-                                                wherein which. Fill you image rule Herb saying said was that living.
-                                                Face
-                                                our
-                                                whales One beginning two appear to created for form a. Really
-                                                appeared.</p>
-                                            <a
-                                                    href="single-post.html" class="comments"><i
-                                                    class="ion-ios-chatbubble-outline"></i>12</a><a
-                                                href="single-post.html"
-                                                title="Estimated read time"
-                                                class="date"><i
-                                                class="ion-ios-clock-outline"></i>1 min</a>
-                                        </div>
-                                        <hr/>
-                                    </article>
-                                </div>
-                                <div class="col-md-12">
-                                    <article class="blog-post"><a href="single-post.html"><img
-                                            src="/static/assets/images/blog-1.jpg" alt="Post image"/></a>
-                                        <div class="blog-post-details">
-                                            <div class="secondary-information text-center small-screen-hidden"><img
-                                                    src="/static/assets/images/avatar-4.jpg" alt="Author image"
-                                                    class="img-circle"/><i class="ion-ios-heart-outline"></i><span
-                                                    class="favorites-counter">45</span></div>
-                                            <a href="single-post.html">
-                                                <h3>This was urgent<small>read more</small></h3></a>
-                                            <p>No lobe and affecftion. Together. Fruit us green sea sea without a,
-                                                wherein
-                                                which. Fill you image rule Herb saying said was that living. Face our
-                                                whales
-                                                One
-                                                beginning two appear to created for form a. They wanted me to .</p><a
-                                                href="single-post.html" class="comments"><i
-                                                class="ion-ios-chatbubble-outline"></i>98</a><a href="single-post.html"
-                                                                                                title="Estimated read time"
-                                                                                                class="date"><i
-                                                class="ion-ios-clock-outline"></i>2 min</a>
-                                        </div>
-                                        <hr/>
-                                    </article>
-                                </div>
-                                <div class="col-md-12">
-                                    <article class="blog-post"><a href="single-post.html"><img
-                                            src="/static/assets/images/blog-3.jpg" alt="Post image"/></a>
-                                        <div class="blog-post-details">
-                                            <div class="secondary-information text-center small-screen-hidden"><img
-                                                    src="/static/assets/images/avatar-1.jpg" alt="Author image"
-                                                    class="img-circle"/><i class="ion-ios-heart-outline"></i><span
-                                                    class="favorites-counter">11</span></div>
-                                            <a href="single-post.html">
-                                                <h3>We are nation<small>read more</small></h3></a>
-                                            <p>Land you given waters. Fruit. Together. Fruit us green sea sea without a,
-                                                wherein
-                                                which. Fill you image rule Herb saying said was that living. Face our
-                                                whales
-                                                pear to created for form a. Years given bring.One beginning two.</p><a
-                                                href="single-post.html" class="comments"><i
-                                                class="ion-ios-chatbubble-outline"></i>32</a><a href="single-post.html"
-                                                                                                title="Estimated read time"
-                                                                                                class="date"><i
-                                                class="ion-ios-clock-outline"></i>3 min</a>
-                                        </div>
-                                    </article>
-                                    <hr/>
-                                </div>
+
+
                                 <div class="col-md-12 margin-top"><a href="home-magazine.html" class="btn btn-primary">More
                                     posts</a></div>
                             </div>
@@ -328,71 +236,47 @@
                                 <div class="col-md-12 widget-top-margin">
                                     <div class="widget">
                                         <form class="search-form">
-                                            <input type="text" placeholder="Search" class="form-control"/><i
+                                            <input id="search" type="text" placeholder="Search" class="form-control"/><i
                                                 class="icon ion-ios-search"></i>
                                         </form>
                                     </div>
                                 </div>
+
+
+                                <!--标签-->
                                 <div class="col-md-12">
                                     <div class="widget">
-                                        <h4>Top voted stories</h4>
-                                        <ul class="favorite-posts">
-                                            <li><a href="#!"> <img src="/static/assets/images/widget-latest-post-1.jpg"
-                                                                   alt="Featured Image" width="50"
-                                                                   class="img-circle"/><span><small>.1</small>Not your cultural belief</span></a>
-                                            </li>
-                                            <li><a href="#!"> <img src="/static/assets/images/widget-latest-post-2.jpg"
-                                                                   alt="Featured Image" width="50"
-                                                                   class="img-circle"/><span><small>.2</small>We are a nation</span></a>
-                                            </li>
-                                            <li><a href="#!"> <img src="/static/assets/images/widget-latest-post-3.jpg"
-                                                                   alt="Featured Image" width="50"
-                                                                   class="img-circle"/><span><small>.3</small>UI / UX Approach</span></a>
-                                            </li>
-                                            <li><a href="#!"> <img src="/static/assets/images/widget-latest-post-4.jpg"
-                                                                   alt="Featured Image" width="50"
-                                                                   class="img-circle"/><span><small>.4</small>The day I live</span></a>
-                                            </li>
-                                            <li><a href="#!"> <img src="/static/assets/images/widget-latest-post-5.jpg"
-                                                                   alt="Featured Image" width="50"
-                                                                   class="img-circle"/><span><small>.5</small>The place boomin'</span></a>
-                                            </li>
+                                        <h4>标签</h4>
+                                        <ul class="tags-widget" id="tag_list">
+                                            <!--标签-->
+
+
                                         </ul>
                                     </div>
                                 </div>
+
+                                <!--分类-->
                                 <div class="col-md-12">
                                     <div class="widget">
-                                        <h4>Tags</h4>
-                                        <ul class="tags-widget">
-                                            <li class="button-tag"><a href="#!">Long story short</a></li>
-                                            <li class="button-tag"><a href="#!">Nature</a></li>
-                                            <li class="button-tag"><a href="#!">Biological</a></li>
-                                            <li class="button-tag"><a href="#!">True story</a></li>
-                                            <li class="button-tag"><a href="#!">Period</a></li>
-                                            <li class="button-tag"><a href="#!">Vikings</a></li>
-                                            <li class="button-tag"><a href="#!">History</a></li>
-                                            <li class="button-tag"><a href="#!">Paris</a></li>
-                                            <li class="button-tag"><a href="#!">WeAreANation</a></li>
-                                            <li class="button-tag"><a href="#!">PeoplePeople</a></li>
-                                            <li class="button-tag"><a href="#!">Most Wanted</a></li>
-                                            <li class="button-tag"><a href="#!">Sillicon Valley</a></li>
+                                        <h4>分类</h4>
+                                        <ul class="categories-widget" id="cate_list">
+
                                         </ul>
                                     </div>
                                 </div>
+
+
+                                <!--归档-->
                                 <div class="col-md-12">
                                     <div class="widget">
-                                        <h4>Categories</h4>
-                                        <ul class="categories-widget">
-                                            <li><a href="#!">Favorites</a></li>
-                                            <li><a href="#!">Welcome</a></li>
-                                            <li><a href="#!">Tales</a></li>
-                                            <li><a href="#!">Briefing</a></li>
-                                            <li><a href="#!">Art</a></li>
-                                            <li><a href="#!">Web</a></li>
-                                            <li><a href="#!">Design </a></li>
+                                        <h4>归档</h4>
+                                        <ul class="categories-widget" id="year_month">
+
+
                                         </ul>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -635,8 +519,119 @@
 <script src="/static/assets/js/contact.js"></script>
 <!--<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
 <script type="text/javascript" src="/static/assets/js/slider-initialization.js"></script>
-{% block js %}
+{#<script type="text/javascript" src="/static/assets/js/my_blog.js"></script>#}
 
+{% block js %}
+    <script>
+
+        var username = "{{ user.username }}";
+
+        // 获取文章列表
+        $(document).ready(function () {
+
+            $.ajax({
+                url: "/query_article_list/",
+                type: "post",
+
+                username: "{{ user.username }}",
+                data: {
+                    name: 'all',
+                    csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
+                    username: username,
+                },
+
+                success: function (data) {
+
+                    $('#article_list').html(data.content_html);
+
+                }
+            });
+
+            $.ajax({
+                url: "/query_tag_list/",
+                type: "post",
+
+                username: "{{ user.username }}",
+                data: {
+                    name: 'all',
+                    csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
+                    username: username,
+                },
+
+                success: function (data) {
+
+                    $('#tag_list').html(data.content_html);
+
+                }
+            });
+
+            $.ajax({
+                url: "/query_cate_list/",
+                type: "post",
+
+                username: "{{ user.username }}",
+                data: {
+                    name: 'all',
+                    csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
+                    username: username,
+                },
+
+                success: function (data) {
+
+                    $('#cate_list').html(data.content_html);
+
+                }
+            });
+
+            // 获取归档列表
+            $.ajax({
+                url: "/query_month_list/",
+                type: "post",
+
+                username: "{{ user.username }}",
+                data: {
+                    name: 'all',
+                    csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
+                    username: username,
+                },
+
+                success: function (data) {
+
+                    $('#year_month').html(data.content_html);
+
+                }
+            });
+
+        });
+
+
+        // 触发点击事件，js渲染后点击失效，已经解决
+        $(document).on("click", ".author_btn", function () {
+            var id = this.id;
+            var name = this.getAttribute("name");
+            console.log(id, name)
+            $.ajax({
+                url: "/query_article_list/",
+                type: "post",
+
+                username: "{{ user.username }}",
+                data: {
+                    id: id,
+                    name: name,
+                    csrfmiddlewaretoken: $("[name='csrfmiddlewaretoken']").val(),
+                    username: username,
+                },
+
+                success: function (data) {
+
+                    $('#article_list').html(data.content_html);
+
+                }
+            })
+        });
+
+
+    </script>
 {% endblock %}
 </body>
 </html>

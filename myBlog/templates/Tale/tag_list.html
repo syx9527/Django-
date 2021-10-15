@@ -1,0 +1,14 @@
+{% if tag_list %}
+    {% for tag in tag_list %}
+        <li
+                class="button-tag">
+            <a class="author_btn tags" name="tag" id="{{ tag.title }}"
+
+               href="javascript:;">{{ tag.title }}({{ tag.c }})</a>
+        </li>
+    {% endfor %}
+{% else %}
+    <li
+            class="button-tag">无
+    </li>
+{% endif %}

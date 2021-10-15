@@ -1,0 +1,12 @@
+{% if cate_list %}
+    {% for cate in cate_list %}
+        <li><a href="javascript:;" class="author_btn"
+               name="cate"
+               id="{{ cate.title }}">{{ cate.title }}({{ cate.c }})</a>
+        </li>
+    {% endfor %}
+{% else %}
+    <li
+            class="button-tag">无
+    </li>
+{% endif %}
